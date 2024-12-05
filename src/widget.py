@@ -13,4 +13,3 @@ def mask_account_card(user_data: str) -> str:
 def get_date(cur_date: str) -> str:
     """Функция, которая принимает дату в формате "2024-03-11T02:26:18.671407" возвращает строку в формате ДД.ММ.ГГГГ"""
     return f"{cur_date[:10].split('-')[2]}.{cur_date[:10].split('-')[1]}.{cur_date[:10].split('-')[0]}"
-
