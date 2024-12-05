@@ -1,4 +1,4 @@
-from src.widget import mask_account_card
+from src.widget import mask_account_card, get_date
 
 CARD_NUMBER_STANDARD_LENGTH = 16
 ACCOUNT_NUMBER_STANDARD_LENGTH = 20
@@ -16,6 +16,7 @@ def get_info() -> None:
     )
     account_number_mask = mask_account_card(user_account_number)
     print(f"Ваш счет {account_number_mask} принят.\n---\nВсе необходимые данные получены, спасибо, всего " f"доброго!")
+    print(f'Дата вашего визита: {get_date("2024-05-12T21:49:52.671407")}')
 
 
 if __name__ == "__main__":
