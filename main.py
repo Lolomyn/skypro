@@ -21,3 +21,5 @@ def get_info() -> None:
 
 if __name__ == "__main__":
     get_info()
+
+# some changes
