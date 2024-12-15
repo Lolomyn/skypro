@@ -7,25 +7,74 @@ by lolomyn
 
 ## Install:
 
-clone repo
-```
-git clone git@github.com:Lolomyn/skypro.git
-```
+**Ubuntu**
 
-update pip
-```
-python -m pip install --upgrade pip
-```
+`sudo apt update` - update all packages
 
-install dependencies
-```
-pip install -r requirements.txt
-```
+- python
 
-start
-```
-python main.py
-```
+`sudo apt install python3` - install python
+
+`python3 -V` - check python version
+
+- git
+
+`sudo apt install git` - install git
+
+`git --version` - check git version
+
+- poetry
+
+`sudo apt install python3-poetry` - install poetry
+
+`poetry --version` - check poetry version
+
+- clone repo
+
+`git clone git@github.com:Lolomyn/skypro.git`
+
+- install dependencies
+
+`poetry add requests`
+
+- start
+
+`python3 main.py`
+
+**Windows**
+
+`sudo apt update` - update all packages
+
+- python
+
+Download it  [here](https://www.python.org/) and follow instructions
+
+`python --version` - check python version
+
+- git
+
+Download in [here](https://git-scm.com/) and follow instructions
+
+`git --version` - check git version
+
+- poetry
+
+`curl -sSL https://install.python-poetry.org | python -` - install poetry
+
+`poetry --version` - check poetry version
+
+- clone repo
+
+`git clone git@github.com:Lolomyn/skypro.git`
+
+- install dependencies
+
+`poetry add requests`
+
+- start
+
+`python main.py`
+
 ## Functions:
 
 *mask_account_card* -
