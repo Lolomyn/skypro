@@ -12,7 +12,17 @@ clone repo
 git clone git@github.com:Lolomyn/skypro.git
 ```
 
-start:
+update pip
+```
+python -m pip install --upgrade pip
+```
+
+install dependencies
+```
+pip install -r requirements.txt
+```
+
+start
 ```
 python main.py
 ```
@@ -78,3 +88,7 @@ example:
 {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}]
 
 ```
+
+## Author:
+[Mail](vismanmark@yandex.ru) /
+[GitHub](https://github.com/Lolomyn)
