@@ -43,4 +43,3 @@
 #
 # radius = int(input("Enter circle radius (int): "))
 # get_info(radius)
-
