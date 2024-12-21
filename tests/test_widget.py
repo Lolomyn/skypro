@@ -40,16 +40,12 @@ def test_mask_account_card_invalid_input(user_data):
 
 
 # get_date
-def test_get_date_input():
-    assert get_date("2024-01-01")
-    with pytest.raises(ValueError):
-        get_date("24.1.12")
+def test_get_date_input(fixture_date):
+    for i in fixture_date:
+        assert get_date(i)
 
 
-@pytest.mark.parametrize(
-    "cur_date",
-    ["", "2025-25-01", "24-01-01", "2024-01-32"],
-)
-def test_get_date_invalid_date(cur_date):
-    with pytest.raises(ValueError):
-        get_date(cur_date)
+def test_get_date_invalid_date(fixture_invalid_date):
+    for i in fixture_invalid_date:
+        with pytest.raises(ValueError):
+            get_date(i)
