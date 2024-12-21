@@ -1,3 +1,4 @@
+from src.masks import get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
 from src.widget import get_date, mask_account_card
 
@@ -16,7 +17,8 @@ def get_info():
     # print(mask_account_card(input()))
     # print(get_date(input()))
     # print(filter_by_state(my_list))
-    print(sort_by_date(my_list))
+    # print(sort_by_date(my_list))
+    # print(get_mask_card_number("1234567890123"))
 
 
 if __name__ == "__main__":
