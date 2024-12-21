@@ -138,6 +138,23 @@ example:
 
 ```
 
+## Tests:
+Установка pytest: `poetry add --group dev pytest`
+
+Папка `tests` содержит тестовые модули:
+
+`test_masks.py` >>> `masks.py`
+
+`test_processing.py` >>> `processing.py`
+
+`test_widget.py` >>> `widget.py`
+
+Модуль `conftest.py` содержит фикстуры, используемые при тестировании.
+
+Результаты покрытия тестов в пакете `htmlcov` в формате HTML.
+
+Вызов результатов покрытия в консоль: `pytest --cov`
+
 ## Author:
 [Mail](vismanmark@yandex.ru) /
 [GitHub](https://github.com/Lolomyn)
