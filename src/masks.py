@@ -21,8 +21,7 @@ def get_mask_card_number(card_number: str) -> str:
             f"{first_part_mask} {star * (4 - second_part_mask)}{card_number[-4:second_part_mask - 4]} "
             f"{card_number[-(4 - second_part_mask):]}"
         )
-    elif len(card_number) >= 16:
-        return f"{first_part_mask} {star * 4} {star * second_part_mask}{card_number[-4:]}"
+    return f"{first_part_mask} {star * 4} {star * second_part_mask}{card_number[-4:]}"
 
 
 def get_mask_account(account_number: str) -> str:

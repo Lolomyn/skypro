@@ -2,7 +2,7 @@
 disallow_untyped_defs = true
 warn_return_any = true
 check_untyped_defs = true
-exclude = 'venv'
+exclude = 'venv|tests'
 
 [tool.black]
 line-length = 119
