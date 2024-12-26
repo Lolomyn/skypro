@@ -27,11 +27,3 @@ def card_number_generator(start: int = 1, end: int = 9999999999999999) -> Genera
             card_number = f"{i:016d}"
             card_number_with_spaces = " ".join([card_number[i: i + 4] for i in range(0, len(f"{i:016d}"), 4)])
             yield card_number_with_spaces
-
-
-# invalid = [(1, 4), (-1, 123), (123, -1)]
-# for args in invalid:
-#     print(args[0], args[1])
-#     x = card_number_generator(*args)
-#     print(next(x))
-#
