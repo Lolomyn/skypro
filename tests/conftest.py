@@ -1,8 +1,4 @@
-from urllib import request
-
 import pytest
-
-from src.decorators import log
 
 
 @pytest.fixture
@@ -118,5 +114,3 @@ def fixture_transaction():
 @pytest.fixture
 def fixture_transaction_invalid():
     return [{id: 1}, {id: 2}, {id: 3}, {id: 4}]
-
-

@@ -1,14 +1,14 @@
 import os
 from functools import wraps
-from typing import Optional, Callable, Any
+from typing import Callable, Any
 
 
-def log(filename: Optional[str]) -> Callable:
+def log(filename: str) -> Callable:
     def wrapper(func: Any) -> Any:
         @wraps(func)
         def inner(*args: Any, **kwargs: Any) -> Any:
             try:
-                res = func(*args, **kwargs)
+                func(*args, **kwargs)
             except Exception as e:
                 if os.path.exists(filename):
                     with open(filename, 'a') as file:
@@ -23,18 +23,3 @@ def log(filename: Optional[str]) -> Callable:
                     print(f"{func.__name__} ok")
         return inner
     return wrapper
-
-
-@log(filename='mylog.txt')
-def my_function(x, y):
-    """Функция, которая возвращает сумму аргументов"""
-    return x + y
-
-
-my_function(1, "2")
-
-# Ожидаемый вывод в лог-файл mylog.txt
-# при успешном выполнении: my_function ok
-
-# Ожидаемый вывод при ошибке:
-# my_function error: тип ошибки. Inputs: (1, 2), {}
