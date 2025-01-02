@@ -1,6 +1,6 @@
 import os
 from functools import wraps
-from typing import Callable, Any
+from typing import Any, Callable
 
 
 def log(filename: str) -> Callable:
@@ -11,15 +11,17 @@ def log(filename: str) -> Callable:
                 func(*args, **kwargs)
             except Exception as e:
                 if os.path.exists(filename):
-                    with open(filename, 'a') as file:
+                    with open(filename, "a") as file:
                         file.write(f"{func.__name__} error: {e}. Inputs: {args}, {kwargs}\n")
                 else:
                     print(f"{func.__name__} error: {e}. Inputs: {args}, {kwargs}")
             else:
                 if os.path.exists(filename):
-                    with open(filename, 'a') as file:
+                    with open(filename, "a") as file:
                         file.write(f"{func.__name__} ok\n")
                 else:
                     print(f"{func.__name__} ok")
+
         return inner
+
     return wrapper
