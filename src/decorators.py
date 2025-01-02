@@ -5,10 +5,11 @@ from typing import Any, Callable
 
 def log(filename: str) -> Callable:
     """Декоратор, выводящий логи в консоль или файл о корректном или некорректном исполнении функции"""
+
     def wrapper(func: Any) -> Any:
         @wraps(func)
         def inner(*args: Any, **kwargs: Any) -> Any:
-            res = ''
+            res = ""
             try:
                 res = func(*args, **kwargs)
             except Exception as e:
@@ -26,6 +27,7 @@ def log(filename: str) -> Callable:
                 else:
                     print(f"{func.__name__} ok")
                 return res
+
         return inner
 
     return wrapper
