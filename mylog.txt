@@ -1,0 +1,60 @@
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok
+func4 error: test_log_file_no_args.<locals>.func4() missing 2 required positional arguments: 'x' and 'y'. Inputs: (), {}
+func5 error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+func6 ok

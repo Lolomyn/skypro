@@ -223,6 +223,37 @@ example:
 0000 0000 0000 0005
 ```
 
+
+*decorators.py* - 
+модуль, содержащий декоратор логирования результата работы функции и вывода в файл или консоль ошибок при выполнении
+
+example:
+```
+# input 
+@log(filename='mylog.txt')
+def my_function(x, y):
+    """Функция, которая возвращает сумму аргументов"""
+    return x + y
+    
+my_function(1, 2)
+
+# output
+file mylog.txt >>> my_function ok
+```
+
+```
+# input 
+@log(filename='')
+def my_function(x, y):
+    """Функция, которая возвращает сумму аргументов"""
+    return x + y
+    
+my_function(1, "2")
+
+# output
+console >>> my_function error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
+```
+
 ## Tests:
 Установка pytest: `poetry add --group dev pytest`
 
@@ -233,6 +264,10 @@ example:
 `test_processing.py` >>> `processing.py`
 
 `test_widget.py` >>> `widget.py`
+
+`test_generators.py` >>> `generators.py`
+
+`test_decorators.py` >>> `decorators.py`
 
 Модуль `conftest.py` содержит фикстуры, используемые при тестировании.
 
