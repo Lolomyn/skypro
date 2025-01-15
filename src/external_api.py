@@ -12,13 +12,22 @@ API_KEY = os.getenv("API_KEY")
 def get_amount(transaction_info: dict) -> float:
     """Возвращает сумму транзакции в рублях
     Операции в USD или EUR предварительно конвертируются в рубли по текущему курсу"""
-    currency: str = transaction_info["operationAmount"]["currency"]["code"]
-    amount: float = transaction_info["operationAmount"]["amount"]
+    if transaction_info:
+        if (
+            "code" in transaction_info["operationAmount"]["currency"]
+            and "amount" in transaction_info["operationAmount"]
+        ):
+            currency: str = transaction_info["operationAmount"]["currency"]["code"]
+            amount: float = transaction_info["operationAmount"]["amount"]
 
-    if currency == "RUB":
-        return amount
+            if currency == "RUB":
+                return float(amount)
+            else:
+                return convert_rate_to_rub(currency, amount)
+        else:
+            raise ValueError("Some data does not exists!")
     else:
-        return convert_rate_to_rub(currency, amount)
+        raise ValueError("Empty data!")
 
 
 def convert_rate_to_rub(currency: str, amount: float) -> float:
@@ -38,18 +47,4 @@ def convert_rate_to_rub(currency: str, amount: float) -> float:
     return exchange_amount_value
 
 
-print(get_amount({
-		"id": 441945886,
-		"state": "EXECUTED",
-		"date": "2019-08-26T10:50:58.294041",
-		"operationAmount": {
-			"amount": "31957.58",
-			"currency": {
-				"name": "руб.",
-				"code": "USD"
-			}
-		},
-		"description": "Перевод организации",
-		"from": "Maestro 1596837868705199",
-		"to": "Счет 64686473678894779589"
-	}))
+print(get_amount({"operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}}}))
