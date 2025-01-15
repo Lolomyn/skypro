@@ -45,6 +45,3 @@ def convert_rate_to_rub(currency: str, amount: float) -> float:
     exchange_amount_value: float = exchange_amount["result"]
 
     return exchange_amount_value
-
-
-print(get_amount({"operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}}}))

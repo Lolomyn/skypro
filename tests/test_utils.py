@@ -1,6 +1,4 @@
 import json
-import os.path
-import unittest
 from unittest.mock import mock_open, patch
 
 from src.utils import get_list_of_operations
