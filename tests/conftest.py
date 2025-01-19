@@ -114,3 +114,23 @@ def fixture_transaction():
 @pytest.fixture
 def fixture_transaction_invalid():
     return [{id: 1}, {id: 2}, {id: 3}, {id: 4}]
+
+
+@pytest.fixture()
+def fixture_get_amount_valid():
+    return {"operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}}}
+
+
+@pytest.fixture()
+def fixture_get_amount_empty():
+    return {}
+
+
+@pytest.fixture()
+def fixture_get_amount_invalid():
+    return {"operationAmount": {"amount": "31957.58", "currency": {}}}
+
+
+@pytest.fixture()
+def fixture_get_amount_to_convert():
+    return {"operationAmount": {"amount": "31957.58", "currency": {"name": "doll.", "code": "USD"}}}
