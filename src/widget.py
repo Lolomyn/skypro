@@ -4,7 +4,7 @@ from datetime import datetime
 from .masks import get_mask_account, get_mask_card_number
 
 logger = logging.getLogger("widget")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler("logs/widget.log", "w")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
@@ -36,7 +36,7 @@ def mask_account_card(user_data: str) -> str:
         logger.info("Возвращен номер счета")
         return get_mask_account(filtered_user_data)
     else:
-        logger.warning("Вызвано исключение, пользовательский ввод некорректен")
+        logger.error("Вызвано исключение, пользовательский ввод некорректен")
         raise ValueError(
             "Uncorrected data! " "The card number has 13 to 19 characters. " "The account number has 20 characters."
         )

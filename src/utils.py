@@ -4,7 +4,7 @@ import logging
 import os
 
 logger = logging.getLogger("utils")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler("logs/utils.log", "w")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
@@ -22,5 +22,5 @@ def get_list_of_operations(file_path: str) -> list:
         if isinstance(operations, list):
             logger.info("Данные валидны, возвращается список транзакций")
             return operations
-    logger.warning("Данные некорректны, возвращается пустой список")
+    logger.error("Данные некорректны, возвращается пустой список")
     return []

@@ -4,7 +4,7 @@ from src.utils import get_list_of_operations
 from src.widget import mask_account_card
 
 logger = logging.getLogger("main")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 file_handler = logging.FileHandler("logs/main.log", "w")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
