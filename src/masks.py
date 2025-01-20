@@ -1,3 +1,13 @@
+import logging
+
+logger = logging.getLogger("masks")
+logger.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler("logs/masks.log", "w")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+
+
 def get_mask_card_number(card_number: str) -> str:
     """Функция, которая принимает номер карты и возвращает маску номера по правилу XXXX XX** **** XXXX
 
@@ -10,7 +20,7 @@ def get_mask_card_number(card_number: str) -> str:
         18 - 1234 56** **** **5678
         19 - 1234 56** **** ***6789
     """
-
+    logger.info("Максирование номера карты")
     star = "*"
     # высчитываемые части маски
     first_part_mask = f"{str(card_number)[0:4]} {str(card_number)[4:6]}**"
@@ -26,4 +36,5 @@ def get_mask_card_number(card_number: str) -> str:
 
 def get_mask_account(account_number: str) -> str:
     """Функция, которая принимает номер счета и возвращает маску номера по правилу **XXXX"""
+    logger.info("Маскирование номера счета")
     return f"**{account_number[-4:]}"
