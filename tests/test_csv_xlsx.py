@@ -24,7 +24,7 @@ def test_get_data_from_csv():
         ]
 
 
-@patch('pandas.read_excel')
+@patch("pandas.read_excel")
 def test_get_data_from_excel(mock_read_excel):
     mock_data = pd.DataFrame({"id": ["1", "2", "3"], "Name": ["Sarah", "Mark", "John"]})
     mock_read_excel.return_value = mock_data
