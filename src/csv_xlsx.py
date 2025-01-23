@@ -1,8 +1,10 @@
 import csv
+
 import pandas as pd
 
 
-def get_data_from_csv(path_to_csv_file):
+def get_data_from_csv(path_to_csv_file: str) -> list[dict]:
+    """Преобразует данные из csv файла в список словарей Python"""
     result_dict = []
 
     with open(path_to_csv_file, encoding='utf-8') as file:
@@ -22,15 +24,7 @@ def get_data_from_csv(path_to_csv_file):
     return result_dict
 
 
-# debug
-# transactions_from_csv = get_data_from_csv('data/transactions.csv')
-# print(transactions_from_csv[0])
-#
-
-def get_data_from_excel(path_to_excel_file):
+def get_data_from_excel(path_to_excel_file: str) -> list[dict]:
+    """Преобразует данные из excel файла в список словарей Python"""
     excel_data = pd.read_excel(path_to_excel_file).to_dict(orient='records')
     return excel_data
-
-# debug
-# transactions_from_excel = get_data_from_excel('data/transactions_excel.xlsx')
-# print(transactions_from_excel[0])
