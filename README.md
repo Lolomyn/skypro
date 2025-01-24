@@ -254,6 +254,66 @@ my_function(1, "2")
 console >>> my_function error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (1, '2'), {}
 ```
 
+*csv_xlxs.py* - модуль, содержащий функции преобразования данных из csv и excel в список словарей
+
+example:
+```
+# input
+def get_data_from_csv(path_to_csv_file: str) -> list[dict]:
+    """Преобразует данные из csv файла в список словарей Python"""
+    result_dict = []
+
+    with open(path_to_csv_file, encoding='utf-8') as file:
+        reader = csv.DictReader(file, delimiter=';')
+        for row in reader:
+            result_dict.append({
+                'id': row['id'],
+                'state': row['state'],
+                'date': row['date'],
+                'amount': row['amount'],
+                'currency_name': row['currency_name'],
+                'currency_code': row['currency_code'],
+                'from': row['from'],
+                'to': row['to'],
+                'description': row['description']
+            })
+    return result_dict
+    
+# output
+{
+    'id': '650703', 
+    'state': 'EXECUTED', 
+    'date': '2023-09-05T11:30:32Z', 
+    'amount': '16210', 
+    'currency_name': 'Sol', 
+    'currency_code': 'PEN', 
+    'from': 'Счет 58803664561298323391', 
+    'to': 'Счет 39745660563456619397', 
+    'description': 'Перевод организации'
+}
+```
+```
+# input
+def get_data_from_excel(path_to_excel_file: str) -> list[dict]:
+    """Преобразует данные из excel файла в список словарей Python"""
+    excel_data = pd.read_excel(path_to_excel_file).to_dict(orient='records')
+    return excel_data
+
+
+# output
+{
+    'id': '650703', 
+    'state': 'EXECUTED', 
+    'date': '2023-09-05T11:30:32Z', 
+    'amount': '16210', 
+    'currency_name': 'Sol', 
+    'currency_code': 'PEN', 
+    'from': 'Счет 58803664561298323391', 
+    'to': 'Счет 39745660563456619397', 
+    'description': 'Перевод организации'
+}
+```
+
 ## Tests:
 Установка pytest: `poetry add --group dev pytest`
 
@@ -268,6 +328,8 @@ console >>> my_function error: unsupported operand type(s) for +: 'int' and 'str
 `test_generators.py` >>> `generators.py`
 
 `test_decorators.py` >>> `decorators.py`
+
+`test_csv_xlsx.py` >>> `csv_xlsx.py`
 
 Модуль `conftest.py` содержит фикстуры, используемые при тестировании.
 
