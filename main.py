@@ -2,8 +2,9 @@ import codecs
 import logging
 import json
 
+from src.processing import search_by_query
 from src.utils import get_list_of_operations
-from src.widget import mask_account_card, search_by_query
+from src.widget import mask_account_card
 
 logger = logging.getLogger("main")
 logger.setLevel(logging.DEBUG)
