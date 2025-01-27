@@ -1,7 +1,9 @@
+import codecs
 import logging
+import json
 
 from src.utils import get_list_of_operations
-from src.widget import mask_account_card
+from src.widget import mask_account_card, search_by_query
 
 logger = logging.getLogger("main")
 logger.setLevel(logging.DEBUG)
@@ -13,9 +15,12 @@ logger.addHandler(file_handler)
 
 def main() -> None:
     """Место старта приложения"""
-    get_masked()
-    get_transactions()
-    logger.info("Работа программы завершена.")
+    with codecs.open('data/operations.json', 'r', "utf_8_sig") as file:
+        list_of_operations = json.load(file)
+    search_by_query(list_of_operations, 'Перевод')
+    # get_masked()
+    # get_transactions()
+    # logger.info("Работа программы завершена.")
 
 
 def get_masked() -> None:

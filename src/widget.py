@@ -1,4 +1,5 @@
 import logging
+import re
 from datetime import datetime
 
 from .masks import get_mask_account, get_mask_card_number
@@ -46,3 +47,18 @@ def get_date(cur_date: str) -> str:
     """Функция, которая принимает дату в формате "2024-03-11T02:26:18.671407" возвращает строку в формате ДД.ММ.ГГГГ"""
     filtered_date = datetime.strptime(cur_date[:10], "%Y-%m-%d")
     return filtered_date.strftime("%d.%m.%Y")
+
+
+def search_by_query(list_of_transactions: list, search_string: str) -> list:
+    """ Поиск банковских операций, в описании которых будет фигурировать искомая информация"""
+    search_string = search_string.lower()
+    result_list = []
+    for transaction in list_of_transactions:
+        if transaction:
+            if transaction.get('description') is not None:
+                transaction['description'] = transaction['description'].lower()
+                result = re.search(search_string, transaction['description'])
+                if result:
+                    result_list.append(transaction)
+
+    return result_list
