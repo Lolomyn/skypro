@@ -2,7 +2,7 @@ import codecs
 import json
 import logging
 import os
-from collections import Counter, defaultdict
+from collections import Counter
 
 logger = logging.getLogger("utils")
 logger.setLevel(logging.DEBUG)
