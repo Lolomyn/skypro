@@ -3,7 +3,7 @@ import logging
 import json
 
 from src.processing import search_by_query
-from src.utils import get_list_of_operations
+from src.utils import get_list_of_operations, get_dict_of_categories_and_operations
 from src.widget import mask_account_card
 
 logger = logging.getLogger("main")
@@ -16,9 +16,15 @@ logger.addHandler(file_handler)
 
 def main() -> None:
     """Место старта приложения"""
-    with codecs.open('data/operations.json', 'r', "utf_8_sig") as file:
-        list_of_operations = json.load(file)
-    search_by_query(list_of_operations, 'Перевод')
+    # debug 1
+    search_by_query(get_transactions("data/operations.json"), "Перевод")
+
+    # debug 2
+    operations = get_transactions("data/operations.json")
+    get_dict_of_categories_and_operations(
+        operations, ["Перевод со счета на счет", "Открытие вклада", "Оплата по QR-коду"]
+    )
+
     # get_masked()
     # get_transactions()
     # logger.info("Работа программы завершена.")
@@ -40,12 +46,12 @@ def get_masked() -> None:
     )
 
 
-def get_transactions() -> None:
+def get_transactions(path) -> list:
     """Получает словарь с транзакциям из заданного .json файла"""
-    path = "data/operations.json"
     logger.info(f"Получен список транзакций по пути: {path}")
     transactions = get_list_of_operations(path)
     logger.info(f"Получено транзакций: {len(transactions)}. Конец работы функции <get_transactions>")
+    return transactions
 
 
 if __name__ == "__main__":
