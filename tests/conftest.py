@@ -134,3 +134,201 @@ def fixture_get_amount_invalid():
 @pytest.fixture()
 def fixture_get_amount_to_convert():
     return {"operationAmount": {"amount": "31957.58", "currency": {"name": "doll.", "code": "USD"}}}
+
+
+@pytest.fixture()
+def fixture_get_operations():
+    return [
+        {
+            "state": "EXECUTED",
+            "description": "Вклад",
+            "date": "2018-06-30T02:08:58.425572",
+            "operationAmount": {"currency": {"code": "USD"}}
+        },
+        {
+            "state": "EXECUTED",
+            "description": "Перевод организации",
+            "date": "2019-04-04T23:20:05.206878",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        },
+        {
+            "state": "CANCELED",
+            "description": "Вклад",
+            "date": "2019-07-12T20:41:47.882230",
+            "operationAmount": {"currency": {"code": "EUR"}}
+        },
+        {
+            "state": "CANCELED",
+            "description": "Перевод с карты на счет",
+            "date": "2018-08-19T04:27:37.904916",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        }
+    ]
+
+
+@pytest.fixture()
+def fixture_executed_sort():
+    return [
+        {
+            "state": "EXECUTED",
+            "description": "Вклад",
+            "date": "2018-06-30T02:08:58.425572",
+            "operationAmount": {"currency": {"code": "USD"}}
+        },
+        {
+            "state": "EXECUTED",
+            "description": "Перевод организации",
+            "date": "2019-04-04T23:20:05.206878",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        }
+    ]
+
+
+@pytest.fixture()
+def fixture_canceled_sort():
+    return [
+        {
+            "state": "CANCELED",
+            "description": "Вклад",
+            "date": "2019-07-12T20:41:47.882230",
+            "operationAmount": {"currency": {"code": "EUR"}}
+        },
+        {
+            "state": "CANCELED",
+            "description": "Перевод с карты на счет",
+            "date": "2018-08-19T04:27:37.904916",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        }
+    ]
+
+
+@pytest.fixture()
+def fixture_sorted_by_date_up():
+    return [
+        {
+            "state": "EXECUTED",
+            "description": "Вклад",
+            "date": "2018-06-30T02:08:58.425572",
+            "operationAmount": {"currency": {"code": "USD"}}
+        },
+        {
+            "state": "CANCELED",
+            "description": "Перевод с карты на счет",
+            "date": "2018-08-19T04:27:37.904916",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        },
+        {
+            "state": "EXECUTED",
+            "description": "Перевод организации",
+            "date": "2019-04-04T23:20:05.206878",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        },
+        {
+            "state": "CANCELED",
+            "description": "Вклад",
+            "date": "2019-07-12T20:41:47.882230",
+            "operationAmount": {"currency": {"code": "EUR"}}
+        }
+    ]
+
+
+@pytest.fixture()
+def fixture_sorted_by_date_down():
+    return [
+        {
+            "state": "CANCELED",
+            "description": "Вклад",
+            "date": "2019-07-12T20:41:47.882230",
+            "operationAmount": {"currency": {"code": "EUR"}}
+        },
+        {
+            "state": "EXECUTED",
+            "description": "Перевод организации",
+            "date": "2019-04-04T23:20:05.206878",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        },
+        {
+            "state": "CANCELED",
+            "description": "Перевод с карты на счет",
+            "date": "2018-08-19T04:27:37.904916",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        },
+        {
+            "state": "EXECUTED",
+            "description": "Вклад",
+            "date": "2018-06-30T02:08:58.425572",
+            "operationAmount": {"currency": {"code": "USD"}}
+        }
+    ]
+
+
+@pytest.fixture()
+def fixture_sorted_by_rub():
+    return [
+        {
+            "state": "EXECUTED",
+            "description": "Перевод организации",
+            "date": "2019-04-04T23:20:05.206878",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        },
+        {
+            "state": "CANCELED",
+            "description": "Перевод с карты на счет",
+            "date": "2018-08-19T04:27:37.904916",
+            "operationAmount": {"currency": {"code": "RUB"}}
+        }
+    ]
+
+
+@pytest.fixture()
+def fixture_sorted_by_keyword():
+    return [
+        {
+            "state": "EXECUTED",
+            "description": "Вклад",
+            "date": "2018-06-30T02:08:58.425572",
+            "operationAmount": {"currency": {"code": "USD"}}
+        },
+        {
+            "state": "CANCELED",
+            "description": "Вклад",
+            "date": "2019-07-12T20:41:47.882230",
+            "operationAmount": {"currency": {"code": "EUR"}}
+        }
+    ]
+
+
+@pytest.fixture()
+def fixture_for_summary():
+    return [
+        {
+            "id": 441945886,
+            "state": "EXECUTED",
+            "date": "2019-08-26T10:50:58.294041",
+            "operationAmount": {
+                "amount": "31957.58",
+                "currency": {
+                    "name": "руб.",
+                    "code": "RUB"
+                }
+            },
+            "description": "Перевод организации",
+            "from": "Maestro 1596837868705199",
+            "to": "Счет 64686473678894779589"
+        }
+    ]
+
+
+@pytest.fixture()
+def fixture_for_summary_without_from():
+    return [
+        {
+            "id": 441945886,
+            "state": "EXECUTED",
+            "date": "2019-08-26T10:50:58.294041",
+            "amount": "31957.58",
+            "currency_name": "руб.",
+            "description": "Перевод организации",
+            "to": "Счет 64686473678894779589"
+        }
+    ]

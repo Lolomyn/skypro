@@ -17,16 +17,13 @@ def get_user_output_format():
     while True:
         if data_choice == "1":
             print("Для обработки выбран JSON-файл\n")
-            data = get_list_of_operations("data/operations.json")
-            return data
+            return get_list_of_operations("data/operations.json")
         elif data_choice == "2":
             print("Для обработки выбран CSV-файл\n")
-            data = get_data_from_csv("data/transactions.csv")
-            return data
+            return get_data_from_csv("data/transactions.csv")
         elif data_choice == "3":
             print("Для обработки выбран XLSX-файл\n")
-            data = get_data_from_excel("data/transactions_excel.xlsx")
-            return data
+            return get_data_from_excel("data/transactions_excel.xlsx")
         else:
             print(
                 """Выбран неверный пункт!\n

@@ -46,3 +46,5 @@ def test_get_dict_of_categories_and_operations():
 
     expected = {'1': 1, '2': 1, '3': 0}
     assert get_dict_of_categories_and_operations(output_list, categories) == expected
+
+

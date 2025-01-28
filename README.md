@@ -314,6 +314,11 @@ def get_data_from_excel(path_to_excel_file: str) -> list[dict]:
 }
 ```
 
+*utils.py* - модуль для получения данных из различных источников в виде списка
+
+
+*main_utility.py* - модуль, реализующий консольное приложение
+
 ## Tests:
 Установка pytest: `poetry add --group dev pytest`
 
@@ -330,6 +335,10 @@ def get_data_from_excel(path_to_excel_file: str) -> list[dict]:
 `test_decorators.py` >>> `decorators.py`
 
 `test_csv_xlsx.py` >>> `csv_xlsx.py`
+
+`test_utils.py` >>> `utils.py`
+
+`test_main_utility.pe` >>> `main_utility.py`
 
 Модуль `conftest.py` содержит фикстуры, используемые при тестировании.
 
