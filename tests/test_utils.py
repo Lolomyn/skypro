@@ -1,7 +1,7 @@
 import json
 from unittest.mock import mock_open, patch
 
-from src.utils import get_list_of_operations
+from src.utils import get_dict_of_categories_and_operations, get_list_of_operations
 
 
 def test_get_list_of_operations():
@@ -35,3 +35,14 @@ def test_get_list_of_operations_empty_file():
         with patch("os.path.getsize", return_value=0):
             result = get_list_of_operations("dummy_path.json")
             assert result == []
+
+
+def test_get_dict_of_categories_and_operations():
+    categories = ['1', '2', '3']
+    output_list = [
+        {"description": "1", "from": "Maestro 1596837868705199", "to": "Счет 64686473678894779589"},
+        {"description": "2", "from": "MasterCard 7158300734726758"}
+    ]
+
+    expected = {'1': 1, '2': 1, '3': 0}
+    assert get_dict_of_categories_and_operations(output_list, categories) == expected

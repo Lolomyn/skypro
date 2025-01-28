@@ -21,25 +21,30 @@ def mask_account_card(user_data: str) -> str:
     Номер счета всегда имеет 20 цифр.
     """
     logger.info(f"Принят ввод пользователя: {user_data}")
-    split_data = user_data.split(" ")
-    filtered_user_data = ""
+    if isinstance(user_data, str):
+        split_data = user_data.split(" ")
+        filtered_user_data = ""
 
-    for item in split_data:
-        if item.isdigit():
-            filtered_user_data = item
-    logger.info(f"Обработан ввод пользователя: {filtered_user_data}")
+        for item in split_data:
+            if item.isdigit():
+                filtered_user_data = item
+        logger.info(f"Обработан ввод пользователя: {filtered_user_data}")
 
-    if 13 <= len(filtered_user_data) <= 19:
-        logger.info("Возвращен номер карты")
-        return get_mask_card_number(filtered_user_data)
-    elif len(filtered_user_data) == 20:
-        logger.info("Возвращен номер счета")
-        return get_mask_account(filtered_user_data)
+        if 13 <= len(filtered_user_data) <= 19:
+            logger.info("Возвращен номер карты")
+            user_data = user_data.replace(filtered_user_data, get_mask_card_number(filtered_user_data))
+            return user_data
+        elif len(filtered_user_data) == 20:
+            logger.info("Возвращен номер счета")
+            user_data = user_data.replace(filtered_user_data, get_mask_account(filtered_user_data))
+            return user_data
+        else:
+            logger.error("Вызвано исключение, пользовательский ввод некорректен")
+            raise ValueError(
+                "Uncorrected data! The card number has 13 to 19 characters. The account number has 20 characters."
+            )
     else:
-        logger.error("Вызвано исключение, пользовательский ввод некорректен")
-        raise ValueError(
-            "Uncorrected data! " "The card number has 13 to 19 characters. " "The account number has 20 characters."
-        )
+        return ''
 
 
 def get_date(cur_date: str) -> str:

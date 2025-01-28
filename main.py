@@ -1,47 +1,35 @@
-import logging
-
-from src.utils import get_list_of_operations
-from src.widget import mask_account_card
-
-logger = logging.getLogger("main")
-logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler("logs/main.log", "w")
-file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
-file_handler.setFormatter(file_formatter)
-logger.addHandler(file_handler)
+from src.main_utility import (
+    get_filter_state,
+    get_summary,
+    get_user_output_format,
+    is_filtered_by_keyword,
+    is_need_sorting,
+    is_only_rub_transactions
+)
 
 
 def main() -> None:
-    """Место старта приложения"""
-    get_masked()
-    get_transactions()
-    logger.info("Работа программы завершена.")
+    """Консольное приложение по банковским операциям"""
+    data = get_user_output_format()  # JSON, CSV или XLSX
+    data = get_filter_state(data)  # EXECUTED, CANCELED или PENDING
 
+    sorted_data = is_need_sorting(data)  # Нужна ли сортировка
 
-def get_masked() -> None:
-    """Запуск функция маскирования"""
-    logger.info("Осуществляется ввод номера карты...")
-    card_number = input("Введите номер карты без пробелов (16 символов): ")
-    masked_card_number = mask_account_card(card_number)
+    if sorted_data:
+        data = sorted_data
 
-    logger.info("Осуществляется ввод номера счета...")
-    account_number = input("Введите номер счета без пробелов (20 символов): ")
-    masked_account_number = mask_account_card(account_number)
+    rub_data = is_only_rub_transactions(data)  # Только транзакции в рублях
 
-    logger.info(
-        f"Замаскированные данные: {masked_card_number}, {masked_account_number}. "
-        f"Конец работы функции <get_masked>."
-    )
+    if rub_data:
+        data = rub_data
 
+    filtered_list_by_word = is_filtered_by_keyword(data)  # Фильтрация по ключевому слову
 
-def get_transactions() -> None:
-    """Получает словарь с транзакциям из заданного .json файла"""
-    path = "data/operations.json"
-    logger.info(f"Получен список транзакций по пути: {path}")
-    transactions = get_list_of_operations(path)
-    logger.info(f"Получено транзакций: {len(transactions)}. Конец работы функции <get_transactions>")
+    if filtered_list_by_word:
+        data = filtered_list_by_word
+
+    get_summary(data)  # Вывод итоговой статистики
 
 
 if __name__ == "__main__":
-    logger.info("Старт работы программы...")
     main()
