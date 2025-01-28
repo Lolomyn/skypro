@@ -41,7 +41,7 @@ def mask_account_card(user_data: str) -> str:
         else:
             logger.error("Вызвано исключение, пользовательский ввод некорректен")
             raise ValueError(
-                "Uncorrected data! " "The card number has 13 to 19 characters. " "The account number has 20 characters."
+                "Uncorrected data! The card number has 13 to 19 characters. The account number has 20 characters."
             )
     else:
         return ''

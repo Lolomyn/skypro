@@ -1,4 +1,4 @@
-from src.processing import filter_by_state, sort_by_date, filtered_by_query
+from src.processing import filter_by_state, filtered_by_query, sort_by_date
 
 
 # filter_by_state

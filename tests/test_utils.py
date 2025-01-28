@@ -1,7 +1,7 @@
 import json
 from unittest.mock import mock_open, patch
 
-from src.utils import get_list_of_operations, get_dict_of_categories_and_operations
+from src.utils import get_dict_of_categories_and_operations, get_list_of_operations
 
 
 def test_get_list_of_operations():
@@ -46,5 +46,3 @@ def test_get_dict_of_categories_and_operations():
 
     expected = {'1': 1, '2': 1, '3': 0}
     assert get_dict_of_categories_and_operations(output_list, categories) == expected
-
-

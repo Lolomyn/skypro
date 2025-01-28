@@ -1,7 +1,13 @@
 from unittest.mock import patch
 
-from src.main_utility import get_filter_state, get_user_output_format, is_need_sorting, is_only_rub_transactions, \
-    is_filtered_by_keyword, get_summary
+from src.main_utility import (
+    get_filter_state,
+    get_summary,
+    get_user_output_format,
+    is_filtered_by_keyword,
+    is_need_sorting,
+    is_only_rub_transactions
+)
 
 
 def test_main_utility_get_user_output_format_json():

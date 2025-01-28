@@ -1,11 +1,12 @@
 from src.csv_xlsx import get_data_from_csv, get_data_from_excel
 from src.generators import filter_by_currency
-from src.processing import filter_by_state, sort_by_date, filtered_by_query
+from src.processing import filter_by_state, filtered_by_query, sort_by_date
 from src.utils import get_list_of_operations
 from src.widget import get_date, mask_account_card
 
 
-def get_user_output_format():
+def get_user_output_format() -> list:
+    """Возвращает данные из выбранного формата"""
     data_choice = input(
         """Привет! Добро пожаловать в программу работы с банковскими транзакциями.\n
 Выберите необходимый пункт меню:
@@ -35,7 +36,8 @@ def get_user_output_format():
             data_choice = input()
 
 
-def get_filter_state(data):
+def get_filter_state(data: list) -> list:
+    """Возвращает отфильрованные данные по статусу"""
     state = input(
         """Введите статус, по которому необходимо выполнить фильтрацию. 
 Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING\n"""
@@ -61,7 +63,8 @@ def get_filter_state(data):
             )
 
 
-def is_need_sorting(data):
+def is_need_sorting(data: list) -> list:
+    """Возвращает отсортированный по дате список, если сортировка подтверждена"""
     is_sorted = input("Отсортировать операции по дате? Да/Нет\n")
     sorted_data = []
     if is_sorted.lower() == "да":
@@ -73,7 +76,8 @@ def is_need_sorting(data):
     return sorted_data
 
 
-def is_only_rub_transactions(data):
+def is_only_rub_transactions(data: list) -> list:
+    """Возвращает список рублевых операций, если подтверждена фильтрация"""
     is_rub_transactions = input("Выводить только рублевые транзакции? Да/Нет\n")
     rub_data = []
 
@@ -83,7 +87,8 @@ def is_only_rub_transactions(data):
     return rub_data
 
 
-def is_filtered_by_keyword(data):
+def is_filtered_by_keyword(data: list) -> list:
+    """Возвращает список операций, в которых есть ключевое слово, если фильтрация подтверждена"""
     is_filtered_by_word = input("Отфильтровать список транзакций по определенному слову в описании? Да/Нет\n")
     filtered_list_by_word = []
 
@@ -94,7 +99,12 @@ def is_filtered_by_keyword(data):
     return filtered_list_by_word
 
 
-def get_summary(data):
+def get_summary(data: list) -> None:
+    """Вывод информацию о предоставленном списке операций
+    - Количество операций
+    - Дата и описание операции
+    - Отправитель - получать операции
+    Сумма операции в указанной валюте"""
     print("Распечатываю итоговый список транзакций...\n\n")
 
     if data:

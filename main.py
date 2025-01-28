@@ -1,10 +1,10 @@
 from src.main_utility import (
-    get_user_output_format,
     get_filter_state,
-    is_need_sorting,
-    is_only_rub_transactions,
-    is_filtered_by_keyword,
     get_summary,
+    get_user_output_format,
+    is_filtered_by_keyword,
+    is_need_sorting,
+    is_only_rub_transactions
 )
 
 
