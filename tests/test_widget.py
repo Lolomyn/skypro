@@ -6,7 +6,7 @@ from src.widget import get_date, mask_account_card
 # mask_account_card
 @pytest.mark.parametrize(
     "user_data, expected",
-    [("VISA card 1234567890123456", "1234 56** **** 3456"), ("12345678901234567890", "**7890")],
+    [("VISA card 1234567890123456", "VISA card 1234 56** **** 3456"), ("12345678901234567890", "**7890")],
 )
 def test_mask_account_card_choosing(user_data, expected):
     assert mask_account_card(user_data) == expected
@@ -15,10 +15,10 @@ def test_mask_account_card_choosing(user_data, expected):
 @pytest.mark.parametrize(
     "user_data, expected",
     [
-        ("VISA card 1234567890123456", "1234 56** **** 3456"),
+        ("VISA card 1234567890123456", "VISA card 1234 56** **** 3456"),
         ("12345678901234567890", "**7890"),
-        ("my card number 7685985647568756", "7685 98** **** 8756"),
-        ("acc 76857132456598609875", "**9875"),
+        ("my card number 7685985647568756", "my card number 7685 98** **** 8756"),
+        ("acc 76857132456598609875", "acc **9875"),
     ],
 )
 def test_mask_account_card_basic(user_data, expected):

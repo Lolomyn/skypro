@@ -18,7 +18,7 @@ def filtered_by_query(list_of_transactions: list, search_string: str) -> list:
     for transaction in list_of_transactions:
         if transaction:
             if transaction.get('description') is not None:
-                result = re.search(search_string, transaction['description'].lower())
+                result = re.search(search_string, transaction['description'])
                 if result:
                     result_list.append(transaction)
 

@@ -4,12 +4,12 @@ from typing import Generator
 def filter_by_currency(transactions: list, currency: str = "USD") -> Generator:
     """Создается итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной"""
     for transaction in transactions:
-        if transaction.get('code'):
+        if transaction.get('operationAmount'):
             if transaction["operationAmount"]["currency"]["code"] == currency:
                 yield transaction
-        elif transaction.get('curency_code'):
-            if transaction["currency_code"] == currency:
-                yield transaction
+        # elif transaction.get('curency_code'):
+        #     if transaction["currency_code"] == currency:
+        #         yield transaction
 
 
 # генератор описаний транзакций

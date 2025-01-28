@@ -46,7 +46,7 @@ def test_filter_by_currency_no_currency(fixture_transaction):
 
 
 def test_filter_by_currency_invalid_input(fixture_transaction_invalid):
-    with pytest.raises(KeyError):
+    with pytest.raises(StopIteration):
         result = filter_by_currency(fixture_transaction_invalid)
         assert next(result)
 
